@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:12-alpine
+    volumes:
+      - pg_data:/var/lib/postgresql/data/pg_data
+    environment:
+      POSTGRES_PASSWORD: server-benchmarks
+      POSTGRES_DB: server-benchmarks
+      POSTGRES_USER: server-benchmarks
+      POSTGRES_PORT: 5432
+      PGDATA: /var/lib/postgresql-store/data/pg_data
+
+    command: -c 'shared_buffers=256MB' -c 'max_connections=200'
+
+
+  quarkus:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile.multistage.native
+
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '1'
+          memory: 512M
+
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+
+    ports:
+      - 8150:8080
+
+    links:
+      - "postgres:postgres"
+
+volumes:
+  pg_data:

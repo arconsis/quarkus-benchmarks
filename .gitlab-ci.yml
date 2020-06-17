@@ -1,0 +1,28 @@
+image: quay.io/quarkus/centos-quarkus-maven:19.3.1-java11
+
+services:
+  - docker:dind
+
+stages:
+  - build
+
+
+build:jvm:
+  stage: build
+  script:
+    - gradle build
+  artifacts:
+    paths:
+      - build/lib/*
+      - build/*.jar
+
+
+build:native:
+  stage: build
+  tags:
+    - native
+  script:
+    - gradle build -Dquarkus.package.type=native
+  artifacts:
+    paths:
+      - build/*-runner

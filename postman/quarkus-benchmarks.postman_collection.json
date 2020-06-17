@@ -1,0 +1,906 @@
+{
+	"info": {
+		"_postman_id": "619e1f2e-3d80-42b1-b344-39c0bc99fa33",
+		"name": "quarkus-benchmarks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "jaxrs",
+			"item": [
+				{
+					"name": "sync",
+					"item": [
+						{
+							"name": "hibernate",
+							"item": [
+								{
+									"name": "create person",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "51540f5c-ccf0-44b8-a9a4-b5e84212c08a",
+												"exec": [
+													"var data = JSON.parse(responseBody);\r",
+													"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/sync/database/hibernate/persons",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"sync",
+												"database",
+												"hibernate",
+												"persons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get person",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/sync/database/hibernate/persons/{{personId}}",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"sync",
+												"database",
+												"hibernate",
+												"persons",
+												"{{personId}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "coroutines",
+					"item": [
+						{
+							"name": "hibernate",
+							"item": [
+								{
+									"name": "create person",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ecda0a20-d3fa-4372-8baa-c5a78b8873e4",
+												"exec": [
+													"var data = JSON.parse(responseBody);\r",
+													"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/coroutines/database/hibernate/persons",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"coroutines",
+												"database",
+												"hibernate",
+												"persons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get person",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/coroutines/database/hibernate/persons/{{personId}}",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"coroutines",
+												"database",
+												"hibernate",
+												"persons",
+												"{{personId}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "reactive",
+							"item": [
+								{
+									"name": "create person",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4540625b-1fd0-4f76-a6a1-7745ddf4a5a9",
+												"exec": [
+													"var data = JSON.parse(responseBody);\r",
+													"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/coroutines/database/reactive/persons",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"coroutines",
+												"database",
+												"reactive",
+												"persons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get person",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/coroutines/database/reactive/persons/{{personId}}",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"coroutines",
+												"database",
+												"reactive",
+												"persons",
+												"{{personId}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "coroutines future",
+					"item": [
+						{
+							"name": "hibernate",
+							"item": [
+								{
+									"name": "create person",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "bc32f5b8-142a-45a9-bb31-2b019ba59f81",
+												"exec": [
+													"var data = JSON.parse(responseBody);\r",
+													"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/coroutines-future/database/hibernate/persons",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"coroutines-future",
+												"database",
+												"hibernate",
+												"persons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get person",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/coroutines-future/database/hibernate/persons/{{personId}}",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"coroutines-future",
+												"database",
+												"hibernate",
+												"persons",
+												"{{personId}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "reactive",
+							"item": [
+								{
+									"name": "create person",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "fac5d77e-2f85-4224-a572-d8ab75ce4d71",
+												"exec": [
+													"var data = JSON.parse(responseBody);\r",
+													"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/coroutines-future/database/reactive/persons",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"coroutines-future",
+												"database",
+												"reactive",
+												"persons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get person",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/coroutines-future/database/reactive/persons/{{personId}}",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"coroutines-future",
+												"database",
+												"reactive",
+												"persons",
+												"{{personId}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "mutiny",
+					"item": [
+						{
+							"name": "hibernate",
+							"item": [
+								{
+									"name": "create person",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "03de57ef-2230-4e9b-a55f-dabea7d79336",
+												"exec": [
+													"var data = JSON.parse(responseBody);\r",
+													"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/mutiny/database/hibernate/persons",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"mutiny",
+												"database",
+												"hibernate",
+												"persons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get person",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/mutiny/database/hibernate/persons/{{personId}}",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"mutiny",
+												"database",
+												"hibernate",
+												"persons",
+												"{{personId}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "reactive",
+							"item": [
+								{
+									"name": "create person",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "af86c9b9-e3c8-4e8c-9f1b-63d1bb0be1bc",
+												"exec": [
+													"var data = JSON.parse(responseBody);\r",
+													"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/mutiny/database/reactive/persons",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"mutiny",
+												"database",
+												"reactive",
+												"persons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get person",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/jaxrs/type/mutiny/database/reactive/persons/{{personId}}",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"jaxrs",
+												"type",
+												"mutiny",
+												"database",
+												"reactive",
+												"persons",
+												"{{personId}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "reactive",
+			"item": [
+				{
+					"name": "reactive",
+					"item": [
+						{
+							"name": "create person",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a4026071-3b70-4b3b-8349-b379fdff7e71",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/frameworks/reactive/type/reactive/database/reactive/persons",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"frameworks",
+										"reactive",
+										"type",
+										"reactive",
+										"database",
+										"reactive",
+										"persons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get person",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/frameworks/reactive/type/reactive/database/reactive/persons/{{personId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"frameworks",
+										"reactive",
+										"type",
+										"reactive",
+										"database",
+										"reactive",
+										"persons",
+										"{{personId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "hibernate",
+					"item": [
+						{
+							"name": "create person",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f09de95d-b763-408c-b35c-0564ebedb823",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/frameworks/reactive/type/blocking/database/hibernate/persons",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"frameworks",
+										"reactive",
+										"type",
+										"blocking",
+										"database",
+										"hibernate",
+										"persons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get person",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/frameworks/reactive/type/blocking/database/hibernate/persons/{{personId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"frameworks",
+										"reactive",
+										"type",
+										"blocking",
+										"database",
+										"hibernate",
+										"persons",
+										"{{personId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "clear db",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/managing/clear",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"managing",
+						"clear"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{user}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b67e40b4-06a3-4963-8736-9eb56c3e6528",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "26a3f13d-af63-4180-bb8b-6ed86bc25edd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
