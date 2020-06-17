@@ -34,7 +34,7 @@ services:
       DATABASE_PORT: 5432
 
     ports:
-      - 8150:8080
+      - 8152:8080
 
     links:
       - "postgres:postgres"
@@ -59,7 +59,7 @@ services:
       DATABASE_PORT: 5432
 
     ports:
-      - 9150:8080
+      - 9152:8080
 
     links:
       - "postgres:postgres"
