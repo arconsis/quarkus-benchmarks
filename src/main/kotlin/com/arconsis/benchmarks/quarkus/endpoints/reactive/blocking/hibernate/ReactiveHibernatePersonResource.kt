@@ -1,4 +1,4 @@
-package com.arconsis.benchmarks.quarkus.endpoints.reactive.hibernate
+package com.arconsis.benchmarks.quarkus.endpoints.reactive.blocking.hibernate
 
 import com.arconsis.benchmarks.quarkus.dto.PersonDto
 import com.arconsis.benchmarks.quarkus.endpoints.reactive.endOK

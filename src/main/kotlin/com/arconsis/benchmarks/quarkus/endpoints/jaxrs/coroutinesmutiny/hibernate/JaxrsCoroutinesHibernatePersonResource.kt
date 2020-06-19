@@ -3,7 +3,6 @@ package com.arconsis.benchmarks.quarkus.endpoints.jaxrs.coroutinesmutiny.hiberna
 import com.arconsis.benchmarks.quarkus.dto.PersonDto
 import com.arconsis.benchmarks.quarkus.endpoints.jaxrs.coroutinesmutiny.CoroutineScopedResource
 import com.arconsis.benchmarks.quarkus.service.sync.SyncPersonService
-import io.smallrye.mutiny.Uni
 import java.util.*
 import javax.inject.Inject
 import javax.ws.rs.*
@@ -19,17 +18,13 @@ class JaxrsCoroutinesHibernatePersonResource : CoroutineScopedResource() {
 
     @GET
     @Path("/persons/{personId}")
-    fun getPerson(@PathParam("personId") personId: UUID): Uni<PersonDto> {
-        return asyncUni {
-            personService.getPerson(personId) ?: throw NotFoundException("Person with id $personId not found.")
-        }
+    fun getPerson(@PathParam("personId") personId: UUID) = asyncUni {
+        personService.getPerson(personId) ?: throw NotFoundException("Person with id $personId not found.")
     }
 
     @POST
     @Path("/persons")
-    fun savePerson(person: PersonDto): Uni<PersonDto> {
-        return asyncUni {
-            personService.createPerson(person)
-        }
+    fun savePerson(person: PersonDto) = asyncUni {
+        personService.createPerson(person)
     }
 }

@@ -1,4 +1,4 @@
-package com.arconsis.benchmarks.quarkus.endpoints.reactive.reactivepostgres
+package com.arconsis.benchmarks.quarkus.endpoints.reactive.reactive.reactivepostgres
 
 import com.arconsis.benchmarks.quarkus.dto.PersonDto
 import com.arconsis.benchmarks.quarkus.endpoints.reactive.end

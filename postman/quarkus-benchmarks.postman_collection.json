@@ -755,7 +755,205 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"name": "hibernate",
+					"name": "blocking",
+					"item": [
+						{
+							"name": "hibernate",
+							"item": [
+								{
+									"name": "create person",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f09de95d-b763-408c-b35c-0564ebedb823",
+												"exec": [
+													"var data = JSON.parse(responseBody);\r",
+													"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/reactive/type/blocking/database/hibernate/persons",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"reactive",
+												"type",
+												"blocking",
+												"database",
+												"hibernate",
+												"persons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get person",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/reactive/type/blocking/database/hibernate/persons/{{personId}}",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"reactive",
+												"type",
+												"blocking",
+												"database",
+												"hibernate",
+												"persons",
+												"{{personId}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "coroutines",
+					"item": [
+						{
+							"name": "hibernate",
+							"item": [
+								{
+									"name": "create person",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2b792dcf-8651-496d-a06f-4ff1c38f0e41",
+												"exec": [
+													"var data = JSON.parse(responseBody);\r",
+													"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/reactive/type/coroutines/database/hibernate/persons",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"reactive",
+												"type",
+												"coroutines",
+												"database",
+												"hibernate",
+												"persons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get person",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/frameworks/reactive/type/coroutines/database/hibernate/persons/{{personId}}",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"frameworks",
+												"reactive",
+												"type",
+												"coroutines",
+												"database",
+												"hibernate",
+												"persons",
+												"{{personId}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "vertx",
+			"item": [
+				{
+					"name": "reactive",
 					"item": [
 						{
 							"name": "create person",
@@ -763,7 +961,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f09de95d-b763-408c-b35c-0564ebedb823",
+										"id": "b105c509-232d-4cdb-a66f-f6b1039e7431",
 										"exec": [
 											"var data = JSON.parse(responseBody);\r",
 											"postman.setEnvironmentVariable(\"personId\", data.id);\r",
@@ -786,15 +984,104 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/frameworks/reactive/type/blocking/database/hibernate/persons",
+									"raw": "{{host}}/frameworks/vertx/type/reactive/database/reactive/persons",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"frameworks",
-										"reactive",
+										"vertx",
 										"type",
-										"blocking",
+										"reactive",
+										"database",
+										"reactive",
+										"persons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get person",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/frameworks/vertx/type/reactive/database/reactive/persons/{{personId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"frameworks",
+										"vertx",
+										"type",
+										"reactive",
+										"database",
+										"reactive",
+										"persons",
+										"{{personId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "coroutines",
+					"item": [
+						{
+							"name": "create person",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "69778d12-95af-4a6c-b294-9bde4ccfcde5",
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/frameworks/vertx/type/coroutines/database/hibernate/persons",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"frameworks",
+										"vertx",
+										"type",
+										"coroutines",
 										"database",
 										"hibernate",
 										"persons"
@@ -821,15 +1108,15 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/frameworks/reactive/type/blocking/database/hibernate/persons/{{personId}}",
+									"raw": "{{host}}/frameworks/vertx/type/coroutines/database/hibernate/persons/{{personId}}",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"frameworks",
-										"reactive",
+										"vertx",
 										"type",
-										"blocking",
+										"coroutines",
 										"database",
 										"hibernate",
 										"persons",
@@ -842,6 +1129,52 @@
 					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "delete persons",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b4166092-abd1-40bf-a4de-d2e7658b2bd2",
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"personId\", data.id);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Hans Maulwurf\",\n\t\"street\": \"Simpsonstreet 42\",\n\t\"city\": \"Springfield\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/frameworks/vertx/type/coroutines/database/reactive/persons",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frameworks",
+								"vertx",
+								"type",
+								"coroutines",
+								"database",
+								"reactive",
+								"persons"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}

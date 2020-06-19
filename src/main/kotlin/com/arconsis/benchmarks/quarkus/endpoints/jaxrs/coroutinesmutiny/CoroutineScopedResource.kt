@@ -4,25 +4,17 @@ import io.smallrye.mutiny.Uni
 import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.future.future
+import java.util.concurrent.CompletionStage
 import kotlin.coroutines.CoroutineContext
 
 
 abstract class CoroutineScopedResource : CoroutineScope {
 
-	override val coroutineContext: CoroutineContext
-		get() = Dispatchers.IO + CoroutineName("CoroutineScopedResource")
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.IO + CoroutineName("CoroutineScopedResource")
 
+    fun <T> asyncUni(block: suspend () -> T): Uni<T> = future { block() }.toUni()
 
-	fun <T> asyncUni(block: suspend () -> T): Uni<T> {
-		return Uni.createFrom().emitter {
-			launch {
-				try {
-					it.complete(block())
-				} catch (e: Exception) {
-					it.fail(e)
-				}
-			}
-		}
-	}
+    private fun <T> CompletionStage<T>.toUni(): Uni<T> = Uni.createFrom().completionStage(this)
 }

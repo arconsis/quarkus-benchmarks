@@ -15,10 +15,10 @@ services:
     command: -c 'shared_buffers=256MB' -c 'max_connections=200'
 
 
-  quarkus:
+  quarkus-native:
     build:
       context: .
-      dockerfile: src/main/docker/Dockerfile.multistage.native
+      dockerfile: src/main/docker/Dockerfile.native.multistage
 
     deploy:
       resources:
@@ -35,6 +35,31 @@ services:
 
     ports:
       - 8150:8080
+
+    links:
+      - "postgres:postgres"
+
+
+  quarkus-jvm:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile.jvm.multistage
+
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '1'
+          memory: 512M
+
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+
+    ports:
+      - 9150:8080
 
     links:
       - "postgres:postgres"
