@@ -12,7 +12,7 @@ services:
       POSTGRES_PORT: 5432
       PGDATA: /var/lib/postgresql-store/data/pg_data
 
-    command: -c 'shared_buffers=256MB' -c 'max_connections=200'
+    command: -c 'shared_buffers=256MB' -c 'max_connections=600'
 
 
   quarkus-native:
